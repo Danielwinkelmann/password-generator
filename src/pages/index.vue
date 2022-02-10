@@ -7,7 +7,7 @@
       <h2 class="text-7xl font-bold">
         {{ count }}
       </h2>
-      <Toggle v-model="toggle" />
+      <PasswordTile label="PasswordTile" value="cDSVKctQx71hCKnu" />
       <SliderTile v-model="count" label="Slider Tile" :min="5" :max="35" />
       <ToggleTile v-model="toggle" label="Toggle Label" title="Toggle Tile" />
       <ToggleTile v-model="toggle" title="Toggle Tile 1" />
