@@ -7,7 +7,7 @@ export const useCounterComposable = () => {
   const decrement = () => count.value--
 
   return {
-    count: readonly(count),
+    count,
     double: readonly(double),
     increment,
     decrement,
