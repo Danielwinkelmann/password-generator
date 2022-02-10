@@ -12,20 +12,7 @@
       <ToggleTile v-model="toggle" label="Toggle Label" title="Toggle Tile" />
       <ToggleTile v-model="toggle" title="Toggle Tile 1" />
       <ToggleTile v-model="toggle" title="Toggle Tile 2" />
-      <div class="flex space-x-2">
-        <button
-          class="bg-bluish-400 hover:bg-bluish-500 duration-150 transition-colors px-3 py-1 rounded-md text-bluish-50"
-          @click="decrement"
-        >
-          {{ t('decrement') }}
-        </button>
-        <button
-          class="bg-bluish-400 hover:bg-bluish-500 duration-150 transition-colors px-3 py-1 rounded-md text-bluish-50"
-          @click="increment"
-        >
-          {{ t('increment') }}
-        </button>
-      </div>
+      <GenerateButton @click="toggle ? increment() : decrement()" />
     </div>
   </div>
 </template>
@@ -33,7 +20,7 @@
 <script setup lang="ts">
 import { useCounterComposable } from '~/composables/useCounterComposable'
 
-const { count, decrement, increment } = useCounterComposable()
+const { count, increment, decrement } = useCounterComposable()
 
 const { t } = useI18n()
 
