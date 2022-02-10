@@ -1,6 +1,6 @@
 <template>
   <div class="text-left">
-    <p v-if="props.label" class="pl-2 pb-1 text-sm font-semibold uppercase">
+    <p v-if="props.label" class="pl-2 pb-1 text-sm text-bluish-200 font-semibold uppercase">
       {{ props.label }}
     </p>
     <div class="flex justify-between items-center bg-bluish-800 rounded-md py-3 text-sm px-4">
