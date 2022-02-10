@@ -7,6 +7,7 @@
       <h2 class="text-7xl font-bold">
         {{ count }}
       </h2>
+      <Toggle v-model="toggle" />
       <div class="flex space-x-2">
         <button class="bg-bluish-400 hover:bg-bluish-500 duration-150 transition-colors px-3 py-1 rounded-lg text-bluish-50" @click="decrement">
           {{ t('decrement') }}
@@ -25,6 +26,8 @@ import { useCounterComposable } from '~/composables/useCounterComposable'
 const { count, decrement, increment } = useCounterComposable()
 
 const { t } = useI18n()
+
+const toggle = ref(false)
 </script>
 
 <route lang="yaml">
