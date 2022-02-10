@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    :class="props.modelValue ? 'bg-bluish-400' : 'bg-bluish-200'"
+    :class="props.modelValue ? 'bg-bluish-400' : 'bg-bluish-700'"
     class=" relative items-center inline-flex flex-shrink-0 h-6 w-12 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none"
     role="switch"
     aria-checked="false"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="p-4 font-mono space-y-8 bg-bluish-800 text-bluish-50 rounded-lg flex flex-col">
+    <div class="p-4 space-y-2 bg-bluish-900 text-bluish-50 rounded-lg flex flex-col">
       <h1 class="text-2xl text-bluish-200 font-semibold">
         {{ t('counter-example') }}
       </h1>
@@ -8,11 +8,20 @@
         {{ count }}
       </h2>
       <Toggle v-model="toggle" />
+      <ToggleTile v-model="toggle" label="Toggle Label" title="Toggle Tile" />
+      <ToggleTile v-model="toggle" title="Toggle Tile 1" />
+      <ToggleTile v-model="toggle" title="Toggle Tile 2" />
       <div class="flex space-x-2">
-        <button class="bg-bluish-400 hover:bg-bluish-500 duration-150 transition-colors px-3 py-1 rounded-lg text-bluish-50" @click="decrement">
+        <button
+          class="bg-bluish-400 hover:bg-bluish-500 duration-150 transition-colors px-3 py-1 rounded-md text-bluish-50"
+          @click="decrement"
+        >
           {{ t('decrement') }}
         </button>
-        <button class="bg-bluish-400 hover:bg-bluish-500 duration-150 transition-colors px-3 py-1 rounded-lg text-bluish-50" @click="increment">
+        <button
+          class="bg-bluish-400 hover:bg-bluish-500 duration-150 transition-colors px-3 py-1 rounded-md text-bluish-50"
+          @click="increment"
+        >
           {{ t('increment') }}
         </button>
       </div>

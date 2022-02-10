@@ -7,6 +7,7 @@ declare module 'vue' {
     Footer: typeof import('./components/Footer.vue')['default']
     README: typeof import('./components/README.md')['default']
     Toggle: typeof import('./components/Toggle.vue')['default']
+    ToggleTile: typeof import('./components/ToggleTile.vue')['default']
   }
 }
 
