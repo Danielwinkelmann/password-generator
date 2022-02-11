@@ -15,4 +15,14 @@
     "*.css": "postcss",
   },
   "editor.formatOnSave": false,
+  "i18n-ally.extract.ignoredByFiles": {
+    "src/pages/index.vue": [
+      "copied ? t('copied') : t('copy-password')",
+      "copied ? t('copied') : t('copy-password')"
+    ]
+  },
+  "i18n-ally.extract.ignored": [
+    "\nmeta:\n  layout: default\n",
+    "\nmeta:\n  layout: default\n"
+  ],
 }

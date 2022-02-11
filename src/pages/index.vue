@@ -1,18 +1,23 @@
 <template>
   <div class="space-y-2 w-full max-w-xl text-bluish-50 flex flex-col">
-    <PasswordTile label="Password" :value="password" />
-    <SliderTile v-model="length" :label="'Length: ' + length" :min="5" :max="35" />
-    <ToggleTile v-model="numbers" label="Settings" title="Number Characters" />
-    <ToggleTile v-model="uppercase" title="Uppercase Characters" />
-    <ToggleTile v-model="symbols" title="Special Characters" />
-    <ToggleTile v-model="autoUpdate" title="Auto Update" />
-    <GenerateButton title="Generate" @click="generate" />
-    <GenerateButton :disabled="copied" :title="copied ? 'Copied!' : 'Copy Password'" @click="copyToClipboard" />
+    <PasswordTile :label="t('password')" :value="password" />
+    <SliderTile v-model="length" :label="t('length-length', [length])" :min="5" :max="35" />
+    <ToggleTile v-model="numbers" :label="t('settings')" :title="t('number-characters')" />
+    <ToggleTile v-model="uppercase" :title="t('uppercase-characters')" />
+    <ToggleTile v-model="symbols" :title="t('special-characters')" />
+    <ToggleTile v-model="autoUpdate" :title="t('auto-update')" />
+    <GenerateButton :title="t('generate')" @click="generate" />
+    <GenerateButton
+      :disabled="copied"
+      :title="copied ? t('copied') : t('copy-password')"
+      @click="copyToClipboard"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import { usePasswordGenerator } from '~/composables/usePasswordGenerator'
+const { t } = useI18n()
 const { copy } = useClipboard()
 const copied = ref(false)
 
