@@ -6,6 +6,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     Footer: typeof import('./components/Footer.vue')['default']
     GenerateButton: typeof import('./components/GenerateButton.vue')['default']
+    Header: typeof import('./components/Header.vue')['default']
     PasswordTile: typeof import('./components/PasswordTile.vue')['default']
     PasswordTileCharacter: typeof import('./components/PasswordTileCharacter.vue')['default']
     README: typeof import('./components/README.md')['default']

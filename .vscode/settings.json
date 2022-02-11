@@ -19,6 +19,12 @@
     "src/pages/index.vue": [
       "copied ? t('copied') : t('copy-password')",
       "copied ? t('copied') : t('copy-password')"
+    ],
+    "src/components/Footer.vue": [
+      "\n          2021 Daniel Winkelmann\n        "
+    ],
+    "src/components/Header.vue": [
+      "Password Generator"
     ]
   },
   "i18n-ally.extract.ignored": [
