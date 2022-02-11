@@ -4,6 +4,7 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    CarbonWarning: typeof import('~icons/carbon/warning')['default']
     Footer: typeof import('./components/Footer.vue')['default']
     GenerateButton: typeof import('./components/GenerateButton.vue')['default']
     PasswordTile: typeof import('./components/PasswordTile.vue')['default']

@@ -4,7 +4,8 @@
       {{ props.label }}
     </p>
     <div
-      class="flex justify-center items-center bg-bluish-800 rounded-md py-3 font-mono text-xl px-4"
+      :class="value.length > 30 ? 'text-md py-3.5' : value.length > 20 ? 'text-lg' : 'text-xl'"
+      class="flex justify-center items-center bg-bluish-800 rounded-md py-3 font-mono px-4"
     >
       <PasswordTileCharacter v-for="(char, index) of props.value" :key="props.value + index" :character="char" />
     </div>
