@@ -13,11 +13,11 @@ export function usePasswordGenerator(options: UsePasswordGeneratorOptions) {
   const charSetSymbolEnabled = useSymbol || ref(false)
   const autoUpdateEnabled = autoUpdate || ref(true)
   const charSetNumber = '0123456789'
-  const charSetSymbol = '@#$%'
+  const charSetSymbol = '@#$%-'
   const charSetUppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
   const charSetLowercase = 'abcdefghijklmnopqrstovwxyz'
-  const password = ref('password')
-  const passwordLength = ref(8)
+  const password = ref('my_password_generator')
+  const passwordLength = useLocalStorage('password_length', 8)
 
   const generateRandomCryptoNumber = () => {
     if (window)
@@ -47,6 +47,8 @@ export function usePasswordGenerator(options: UsePasswordGeneratorOptions) {
     if (autoUpdateEnabled.value)
       generateRandomPassword()
   })
+
+  onMounted(() => setTimeout(() => generateRandomPassword(), 2500))
 
   return {
     password: readonly(password),

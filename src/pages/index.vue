@@ -16,10 +16,10 @@ import { usePasswordGenerator } from '~/composables/usePasswordGenerator'
 const { copy } = useClipboard()
 const copied = ref(false)
 
-const symbols = ref(false)
-const numbers = ref(false)
-const uppercase = ref(false)
-const autoUpdate = ref(true)
+const symbols = useLocalStorage('password_symbols', false)
+const numbers = useLocalStorage('password_numbers', false)
+const uppercase = useLocalStorage('password_uppercase', false)
+const autoUpdate = useLocalStorage('password_auto_update', true)
 const { password, length, generate } = usePasswordGenerator({ useNumbers: numbers, useSymbol: symbols, useUppercase: uppercase, autoUpdate })
 watch(password, () => copied.value = false)
 async function copyToClipboard() {
