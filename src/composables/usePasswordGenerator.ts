@@ -26,6 +26,18 @@ export function usePasswordGenerator(options: UsePasswordGeneratorOptions) {
       return Math.random() // to avoid SSR Issues
   }
 
+  const validatePassword = (password: string) => {
+    const lowerRegExp = new RegExp(`[${charSetLowercase}]`, 'gm')
+    const upperRegExp = new RegExp(`[${charSetUppercase}]`, 'gm')
+    const symbolRegExp = new RegExp(`[${charSetSymbol}]`, 'gm')
+    const numberRegExp = new RegExp(`[${charSetNumber}]`, 'gm')
+    if (!password.match(lowerRegExp)) return false
+    if (charSetNumberEnabled.value && !password.match(numberRegExp)) return false
+    if (charSetUppercaseEnabled.value && !password.match(upperRegExp)) return false
+    if (charSetSymbolEnabled.value && !password.match(symbolRegExp)) return false
+    return true
+  }
+
   const characters = computed(() => {
     const set = [charSetLowercase]
     if (charSetNumberEnabled.value) set.push(charSetNumber)
@@ -40,8 +52,9 @@ export function usePasswordGenerator(options: UsePasswordGeneratorOptions) {
     const charArray = []
     for (let index = 0; index < passwordLength.value; index++)
       charArray.push(getRandomCharacter())
-
-    password.value = charArray.join('')
+    const pw = charArray.join('')
+    if (validatePassword(pw)) password.value = pw
+    else generateRandomPassword()
   }
   watch([passwordLength, charSetNumberEnabled, charSetSymbolEnabled, charSetUppercaseEnabled], () => {
     if (autoUpdateEnabled.value)
