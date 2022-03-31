@@ -1,20 +1,21 @@
-2021-daniel-winkelmann: 2021 Daniel Winkelmann
-auto-update: Auto-Update
-copied: Kopiert!
-copy-password: Passwort kopieren
-counter-example: Zähler Beispiel
-decrement: Abziehen
-english: Englisch
-french: Französisch
-generate: Generieren
-german: Deutsch
-increment: Hinzufügen
-length-length: 'Länge: {0}'
-number-characters: Zahlenzeichen
-password: Passwort
-password-generator: Passwort Generator
-settings: Einstellungen
-spanish: Spanisch
-special-characters: Spezielle Charaktere
-unknown: Unbekannt
-uppercase-characters: Großbuchstaben
+---
+"2021-daniel-winkelmann": "2021 Daniel Winkelmann"
+auto-update: "Auto-Update"
+copied: "Kopiert!"
+copy-password: "Passwort kopieren"
+counter-example: "Zähler Beispiel"
+decrement: "Abziehen"
+english: "Englisch"
+french: "Französisch"
+generate: "Generieren"
+german: "Deutsch"
+increment: "Hinzufügen"
+length-length: "Länge: {0}"
+number-characters: "Zahlenzeichen"
+password: "Passwort"
+password-generator: "Passwort Generator"
+settings: "Einstellungen"
+spanish: "Spanisch"
+special-characters: "Spezielle Zeichen"
+unknown: "Unbekannt"
+uppercase-characters: "Großbuchstaben"
