@@ -3,15 +3,18 @@ const { availableLocales, locale, t } = useI18n()
 onMounted(() => {
   const lang = navigator.language
   const storage = window.localStorage.getItem('locale')
-  if (!storage) {
+  if (!storage && lang) {
     window.localStorage.setItem('locale', lang)
     locale.value = lang
   }
-  else {
+  else if (storage && lang) {
     if (storage === lang)
       locale.value = lang
     else
       locale.value = storage
+  }
+  else {
+    locale.value = 'en'
   }
 })
 function setLocale(value: string) {
