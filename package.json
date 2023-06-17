@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "password-generator",
   "private": true,
   "type": "module",
   "scripts": {

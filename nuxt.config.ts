@@ -13,6 +13,11 @@ export default defineNuxtConfig({
       source: './public/pwa-512x512.png',
     },
   },
+  app: {
+    head: {
+      title: 'Password Generator',
+    },
+  },
   i18n: {
     // locales: ['de', 'en', 'es', 'fr', 'pl'],
     locales: [
