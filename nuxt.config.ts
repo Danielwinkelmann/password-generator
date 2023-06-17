@@ -16,6 +16,11 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Password Generator',
+      meta: [
+        {
+          name: 'theme-color', content: '#040F2D',
+        },
+      ],
     },
   },
   i18n: {
