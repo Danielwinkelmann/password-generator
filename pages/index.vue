@@ -1,7 +1,4 @@
 <script setup lang="ts">
-useSeoMeta({
-  title: 'Password Generator',
-})
 const { t } = useI18n()
 const { copy } = useClipboard()
 const copied = ref(false)
