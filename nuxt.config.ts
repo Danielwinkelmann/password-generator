@@ -12,14 +12,17 @@ export default defineNuxtConfig({
     icon: {
       source: './public/pwa-512x512.png',
     },
+    meta: {
+      name: 'Password Generator',
+      appleStatusBarStyle: 'black-translucent',
+    },
   },
   app: {
     head: {
       title: 'Password Generator',
       meta: [
-        {
-          name: 'theme-color', content: '#040F2D',
-        },
+        { name: 'description', content: 'My amazing site.' },
+        { name: 'theme-color', content: '#040F2D' },
       ],
     },
   },
