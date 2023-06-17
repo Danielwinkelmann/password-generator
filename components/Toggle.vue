@@ -1,3 +1,14 @@
+<script setup lang="ts">
+interface Props {
+  modelValue: boolean
+}
+const props = defineProps<Props>()
+const emits = defineEmits<{
+  (event: 'update:modelValue', value: boolean): void
+}>()
+const updateValue = () => emits('update:modelValue', !props.modelValue)
+</script>
+
 <template>
   <button
     type="button"
@@ -14,14 +25,3 @@
     />
   </button>
 </template>
-
-<script setup lang="ts">
-interface Props {
-  modelValue: boolean
-}
-const props = defineProps<Props>()
-const emits = defineEmits<{
-  (event: 'update:modelValue', value: boolean): void
-}>()
-const updateValue = () => emits('update:modelValue', !props.modelValue)
-</script>

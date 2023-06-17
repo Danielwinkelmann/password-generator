@@ -1,13 +1,8 @@
-<template>
-  <p :class="stateClasses">
-    {{ char }}
-  </p>
-</template>
-
 <script setup lang="ts">
 import type { Ref } from 'vue'
 
 type State = 'none' | 'animate' | 'done'
+const props = defineProps<Props>()
 const characters = 'abcdefghijklmnopqrstovwxyz0123456789'
 const state: Ref<State> = ref('none')
 const getRandomNumber = (from: number, to: number) => Math.floor(Math.random() * to) + from
@@ -21,8 +16,7 @@ interface Props {
   character: string
 }
 
-const props = defineProps<Props>()
-const generateTicks = () => {
+function generateTicks() {
   let tick = 0
 
   const ticks = getRandomTicks(10)
@@ -41,7 +35,11 @@ const generateTicks = () => {
 
 onMounted(() => {
   char.value = getRandomCharacter()
-  setTimeout(() => { state.value = 'animate'; generateTicks() }, getRandomDuration(700))
+  setTimeout(() => {
+    state.value = 'animate'
+    generateTicks()
+  },
+  getRandomDuration(700))
 })
 
 const stateClasses = computed(() => {
@@ -54,5 +52,10 @@ const stateClasses = computed(() => {
       return 'scale-0 ease-out translate-y-12'
   }
 })
-
 </script>
+
+<template>
+  <p :class="stateClasses">
+    {{ char }}
+  </p>
+</template>

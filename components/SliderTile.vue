@@ -1,3 +1,17 @@
+<script setup lang="ts">
+interface Props {
+  modelValue: number
+  min: number
+  max: number
+  label?: string
+}
+const props = defineProps<Props>()
+const emits = defineEmits<{
+  (event: 'update:modelValue', value: number): void
+}>()
+const updateValue = (value: number) => emits('update:modelValue', value)
+</script>
+
 <template>
   <div class="text-left">
     <p v-if="props.label" class="pl-2 pb-1 text-sm text-bluish-200 font-semibold uppercase">
@@ -19,20 +33,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-interface Props {
-  modelValue: number
-  min: number
-  max: number
-  label?: string
-}
-const props = defineProps<Props>()
-const emits = defineEmits<{
-  (event: 'update:modelValue', value: number): void
-}>()
-const updateValue = (value: number) => emits('update:modelValue', value)
-</script>
 
 <style>
 input[type="range"] {

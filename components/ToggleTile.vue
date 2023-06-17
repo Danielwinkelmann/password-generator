@@ -1,3 +1,16 @@
+<script setup lang="ts">
+interface Props {
+  modelValue: boolean
+  label?: string
+  title: string
+}
+const props = defineProps<Props>()
+const emits = defineEmits<{
+  (event: 'update:modelValue', value: boolean): void
+}>()
+const updateValue = (value: boolean) => emits('update:modelValue', value)
+</script>
+
 <template>
   <div class="text-left">
     <p v-if="props.label" class="pl-2 pb-1 text-bluish-200 text-sm font-semibold uppercase">
@@ -11,16 +24,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-interface Props {
-  modelValue: boolean
-  label?: string
-  title: string
-}
-const props = defineProps<Props>()
-const emits = defineEmits<{
-  (event: 'update:modelValue', value: boolean): void
-}>()
-const updateValue = (value: boolean) => emits('update:modelValue', value)
-</script>

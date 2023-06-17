@@ -1,21 +1,21 @@
 ---
-"2021-daniel-winkelmann": "2021 Daniel Winkelmann"
-auto-update: "Mise à jour automatique"
+2021-daniel-winkelmann: 2023 Daniel Winkelmann
+auto-update: Mise à jour automatique
 copied: "Copié\_!"
-copy-password: "Copier le mot de passe"
-counter-example: "Exemple de compteur"
-decrement: "Décrémenter"
-english: "Anglais"
-french: "français"
-generate: "produire"
-german: "allemand"
-increment: "Incrément"
+copy-password: Copier le mot de passe
+counter-example: Exemple de compteur
+decrement: Décrémenter
+english: Anglais
+french: français
+generate: produire
+german: allemand
+increment: Incrément
 length-length: "Longueur\_: {0}"
-number-characters: "Caractères numériques"
-password: "Mot de passe"
-password-generator: "Générateur de mot de passe"
-settings: "Réglages"
-spanish: "Espagnol"
-special-characters: "Caractères spéciaux"
-unknown: "Inconnue"
-uppercase-characters: "Caractères majuscules"
+number-characters: Caractères numériques
+password: Mot de passe
+password-generator: Générateur de mot de passe
+settings: Réglages
+spanish: Espagnol
+special-characters: Caractères spéciaux
+unknown: Inconnue
+uppercase-characters: Caractères majuscules

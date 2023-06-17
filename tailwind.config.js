@@ -1,8 +1,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
-  darkMode: 'class', // or 'media' or 'class'
+  content: [],
   theme: {
     extend: {
       fontFamily: {
@@ -19,17 +19,7 @@ module.exports = {
           900: '#040F2D',
         },
       },
-      boxShadow: {
-        'orange-shadow': ' inset 0 0 0 0.5rem #ff8800',
-      },
     },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [],
 }

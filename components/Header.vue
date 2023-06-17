@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
+
 <template>
   <div class="w-full">
     <nav class="mt-5 mx-auto flex justify-start space-x-2 items-center max-w-xl py-4">
@@ -26,7 +30,3 @@
     </nav>
   </div>
 </template>
-
-<script setup lang="ts">
-const { t } = useI18n()
-</script>

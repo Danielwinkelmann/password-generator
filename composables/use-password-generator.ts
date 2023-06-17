@@ -31,18 +31,25 @@ export function usePasswordGenerator(options: UsePasswordGeneratorOptions) {
     const upperRegExp = new RegExp(`[${charSetUppercase}]`, 'gm')
     const symbolRegExp = new RegExp(`[${charSetSymbol}]`, 'gm')
     const numberRegExp = new RegExp(`[${charSetNumber}]`, 'gm')
-    if (!password.match(lowerRegExp)) return false
-    if (charSetNumberEnabled.value && !password.match(numberRegExp)) return false
-    if (charSetUppercaseEnabled.value && !password.match(upperRegExp)) return false
-    if (charSetSymbolEnabled.value && !password.match(symbolRegExp)) return false
+    if (!password.match(lowerRegExp))
+      return false
+    if (charSetNumberEnabled.value && !password.match(numberRegExp))
+      return false
+    if (charSetUppercaseEnabled.value && !password.match(upperRegExp))
+      return false
+    if (charSetSymbolEnabled.value && !password.match(symbolRegExp))
+      return false
     return true
   }
 
   const characters = computed(() => {
     const set = [charSetLowercase]
-    if (charSetNumberEnabled.value) set.push(charSetNumber)
-    if (charSetUppercaseEnabled.value) set.push(charSetUppercase)
-    if (charSetSymbolEnabled.value) set.push(charSetSymbol)
+    if (charSetNumberEnabled.value)
+      set.push(charSetNumber)
+    if (charSetUppercaseEnabled.value)
+      set.push(charSetUppercase)
+    if (charSetSymbolEnabled.value)
+      set.push(charSetSymbol)
     return set.join('')
   })
   const getRandomNumber = (from: number, to: number) => Math.round(generateRandomCryptoNumber() * to) + from
@@ -53,7 +60,8 @@ export function usePasswordGenerator(options: UsePasswordGeneratorOptions) {
     for (let index = 0; index < passwordLength.value; index++)
       charArray.push(getRandomCharacter())
     const pw = charArray.join('')
-    if (validatePassword(pw)) password.value = pw
+    if (validatePassword(pw))
+      password.value = pw
     else generateRandomPassword()
   }
   watch([passwordLength, charSetNumberEnabled, charSetSymbolEnabled, charSetUppercaseEnabled], () => {

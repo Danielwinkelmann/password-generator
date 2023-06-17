@@ -1,5 +1,6 @@
 {
   "cSpell.words": [
+    "abcdefghijklmnopqrstovwxyz",
     "vite",
     "Vitesse"
   ],
@@ -9,10 +10,10 @@
   "prettier.enable": false,
   "typescript.tsdk": "node_modules/typescript/lib",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
+    "source.fixAll.eslint": true
   },
   "files.associations": {
-    "*.css": "postcss",
+    "*.css": "postcss"
   },
   "editor.formatOnSave": false,
   "i18n-ally.extract.ignoredByFiles": {
@@ -30,5 +31,5 @@
   "i18n-ally.extract.ignored": [
     "\nmeta:\n  layout: default\n",
     "\nmeta:\n  layout: default\n"
-  ],
+  ]
 }
