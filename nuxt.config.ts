@@ -2,12 +2,14 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   ssr: false,
+
   modules: [
     '@nuxtjs/i18n',
     '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     '@kevinmarrec/nuxt-pwa',
   ],
+
   pwa: {
     icon: {
       source: './public/pwa-512x512.png',
@@ -23,6 +25,7 @@ export default defineNuxtConfig({
       // appleStatusBarStyle: 'black-translucent',
     },
   },
+
   app: {
     head: {
       title: 'Password Generator',
@@ -32,6 +35,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   i18n: {
     // locales: ['de', 'en', 'es', 'fr', 'pl'],
     locales: [
@@ -78,4 +82,6 @@ export default defineNuxtConfig({
       // redirectOn: 'root'
     },
   },
+
+  compatibilityDate: '2024-08-28',
 })

@@ -12,23 +12,15 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.5",
+    "@antfu/eslint-config": "^2.27.3",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/devtools": "latest",
-    "@nuxtjs/i18n": "^8.0.0-beta.12",
-    "@nuxtjs/tailwindcss": "^6.7.2",
+    "@nuxtjs/i18n": "^8.5.1",
+    "@nuxtjs/tailwindcss": "^6.12.1",
     "@types/node": "^18",
-    "@vueuse/core": "^10.2.0",
-    "@vueuse/nuxt": "^10.2.0",
-    "eslint": "^8.43.0",
-    "lint-staged": "^13.2.2",
-    "nuxt": "^3.5.2",
-    "simple-git-hooks": "^2.8.1"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npm run lint-staged"
-  },
-  "lint-staged": {
-    "*": "eslint --fix"
+    "@vueuse/core": "^11.0.3",
+    "@vueuse/nuxt": "^11.0.3",
+    "eslint": "^9.9.1",
+    "nuxt": "^3.13.0"
   }
 }
