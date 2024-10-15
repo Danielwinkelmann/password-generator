@@ -29,5 +29,6 @@ async function copyToClipboard() {
       :color="copied ? 'green' : 'blue'" :title="copied ? t('copied') : t('copy-password')"
       @click="copyToClipboard"
     />
+    <p>tet</p>
   </div>
 </template>
