@@ -1,18 +1,24 @@
----
 2021-daniel-winkelmann: '{year} Daniel Winkelmann'
 apple-password: Contraseña estilo Apple
 auto-update: Auto actualización
+close: Cerrar
 copied: ¡Copiado!
 copy-password: Copiar contraseña
 counter-example: Ejemplo de contador
 decrement: Decremento
 generate: Generar
 increment: Incremento
+install-app: Instalar app
+install-guide-add: 'Elige «Añadir a pantalla de inicio»'
+install-guide-share: 'Toca «Compartir» (en iOS 26 está en el menú •••)'
+install-guide-title: Añadir a la pantalla de inicio
 language: Idioma
 length-length: 'Longitud: {0}'
+meta-description: 'Genera contraseñas seguras y aleatorias directamente en tu navegador, también al estilo Apple como meXhy8-pidtad-pobgeh. Gratis, funciona sin conexión, nada sale de tu dispositivo.'
+meta-title: 'Generador de contraseñas – seguras y estilo Apple'
 number-characters: Caracteres numéricos
-password: Contraseña
 password-generator: Generador de contraseñas
+password: Contraseña
 settings: Ajustes
 special-characters: Caracteres especiales
 uppercase-characters: Letras mayúsculas

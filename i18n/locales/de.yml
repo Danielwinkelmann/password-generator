@@ -1,18 +1,24 @@
----
 2021-daniel-winkelmann: '{year} Daniel Winkelmann'
 apple-password: Passwort im Apple-Stil
 auto-update: Auto-Update
+close: Schließen
 copied: Kopiert!
 copy-password: Passwort kopieren
 counter-example: Zähler Beispiel
 decrement: Abziehen
 generate: Generieren
 increment: Hinzufügen
+install-app: App installieren
+install-guide-add: 'Wähle „Zum Home-Bildschirm“'
+install-guide-share: 'Tippe auf „Teilen“ (ab iOS 26 im •••-Menü)'
+install-guide-title: Zum Home-Bildschirm hinzufügen
 language: Sprache
 length-length: 'Länge: {0}'
+meta-description: 'Erstelle sichere, zufällige Passwörter direkt im Browser – auch im Apple-Stil wie meXhy8-pidtad-pobgeh. Kostenlos, offline nutzbar, nichts verlässt dein Gerät.'
+meta-title: 'Passwort Generator – sichere Passwörter im Apple-Stil'
 number-characters: Zahlenzeichen
-password: Passwort
 password-generator: Passwort Generator
+password: Passwort
 settings: Einstellungen
 special-characters: Spezielle Zeichen
 uppercase-characters: Großbuchstaben

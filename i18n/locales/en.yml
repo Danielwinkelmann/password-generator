@@ -1,17 +1,24 @@
 2021-daniel-winkelmann: '{year} Daniel Winkelmann'
 apple-password: Apple-style password
 auto-update: Auto Update
+close: Close
 copied: Copied!
 copy-password: Copy Password
 counter-example: Counter Example
 decrement: Decrement
 generate: Generate
 increment: Increment
+install-app: Install app
+install-guide-add: 'Choose “Add to Home Screen”'
+install-guide-share: 'Tap “Share” (on iOS 26 it’s in the ••• menu)'
+install-guide-title: Add to Home Screen
 language: Language
 length-length: 'Length: {0}'
+meta-description: 'Generate strong, random passwords right in your browser – including Apple-style passwords like meXhy8-pidtad-pobgeh. Free, works offline, nothing leaves your device.'
+meta-title: 'Password Generator – Strong & Apple-Style Passwords'
 number-characters: Number Characters
-password: Password
 password-generator: Password Generator
+password: Password
 settings: Settings
 special-characters: Special Characters
 uppercase-characters: Uppercase Characters

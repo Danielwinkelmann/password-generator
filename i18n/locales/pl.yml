@@ -1,18 +1,24 @@
----
 2021-daniel-winkelmann: '{year} Daniel Winkelmann'
 apple-password: Hasło w stylu Apple
 auto-update: Automatyczna aktualizacja
+close: Zamknij
 copied: Copied!
 copy-password: Copy Password
 counter-example: Counter Example
 decrement: Decrement
 generate: Generate
 increment: Increment
+install-app: Zainstaluj aplikację
+install-guide-add: 'Wybierz „Do ekranu początkowego”'
+install-guide-share: 'Stuknij „Udostępnij” (w iOS 26 w menu •••)'
+install-guide-title: Dodaj do ekranu początkowego
 language: Język
 length-length: 'Length: {0}'
+meta-description: 'Generuj silne, losowe hasła bezpośrednio w przeglądarce – także w stylu Apple, np. meXhy8-pidtad-pobgeh. Za darmo, działa offline, nic nie opuszcza Twojego urządzenia.'
+meta-title: 'Generator haseł – silne hasła w stylu Apple'
 number-characters: Number Characters
-password: Password
 password-generator: Password Generator
+password: Password
 settings: Settings
 special-characters: Special Characters
 uppercase-characters: Uppercase Characters

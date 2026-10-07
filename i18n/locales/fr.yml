@@ -1,18 +1,24 @@
----
 2021-daniel-winkelmann: '{year} Daniel Winkelmann'
 apple-password: Mot de passe style Apple
 auto-update: Mise à jour automatique
+close: Fermer
 copied: "Copié\_!"
 copy-password: Copier le mot de passe
 counter-example: Exemple de compteur
 decrement: Décrémenter
 generate: produire
 increment: Incrément
+install-app: Installer l’app
+install-guide-add: 'Choisissez « Sur l’écran d’accueil »'
+install-guide-share: 'Touchez « Partager » (sur iOS 26 dans le menu •••)'
+install-guide-title: Ajouter à l’écran d’accueil
 language: Langue
 length-length: "Longueur\_: {0}"
+meta-description: 'Générez des mots de passe forts et aléatoires directement dans votre navigateur – y compris au style Apple comme meXhy8-pidtad-pobgeh. Gratuit, hors ligne, rien ne quitte votre appareil.'
+meta-title: 'Générateur de mots de passe – forts et style Apple'
 number-characters: Caractères numériques
-password: Mot de passe
 password-generator: Générateur de mot de passe
+password: Mot de passe
 settings: Réglages
 special-characters: Caractères spéciaux
 uppercase-characters: Caractères majuscules
