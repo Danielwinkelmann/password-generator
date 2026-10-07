@@ -56,11 +56,14 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Password Generator',
+      // cover lets the dark background run under the notch and home indicator
+      viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
       meta: [
         { name: 'description', content: 'My amazing site.' },
         { name: 'theme-color', content: '#040F2D' },
         { name: 'mobile-web-app-capable', content: 'yes' },
         { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-status-bar-style', content: 'black-translucent' },
         { name: 'apple-mobile-web-app-title', content: 'Password Generator' },
       ],
     },

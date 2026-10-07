@@ -58,8 +58,15 @@
   }
 }
 
-/* Tailwind v4 preflight resets buttons to cursor: default */
 @layer base {
+  /* Safari 26 ignores theme-color and tints status bar and toolbar from the page background */
+  html,
+  body {
+    background-color: var(--color-bluish-900);
+    color-scheme: dark;
+  }
+
+  /* Tailwind v4 preflight resets buttons to cursor: default */
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
