@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Barlow', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+  --color-bluish-50: #DEE6FF;
+  --color-bluish-200: #545F86;
+  --color-bluish-400: #157AF5;
+  --color-bluish-500: #0A69CF;
+  --color-bluish-700: #14244C;
+  --color-bluish-800: #091642;
+  --color-bluish-900: #040F2D;
+
+  /* Motion: one snappy curve for UI state, one spring for playful feedback */
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --animate-fade-up: fade-up 450ms var(--ease-snappy) backwards;
+  --animate-burst: burst 650ms var(--ease-snappy) forwards;
+  --animate-ring: ring 550ms var(--ease-snappy) forwards;
+  --animate-draw: draw 350ms 80ms var(--ease-snappy) backwards;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      translate: 0 10px;
+    }
+  }
+
+  /* Particle flies out along --angle for --distance, shrinking as it goes */
+  @keyframes burst {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--distance)) scale(0);
+    }
+  }
+
+  @keyframes ring {
+    from {
+      opacity: 0.8;
+      scale: 0.6;
+    }
+    to {
+      opacity: 0;
+      scale: 2.6;
+    }
+  }
+
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 26;
+    }
+  }
+}
+
+/* Tailwind v4 preflight resets buttons to cursor: default */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* Stroke-draw for Tabler icons (all paths are short enough for a 26 unit dash) */
+.icon-draw path {
+  stroke-dasharray: 26;
+  animation: var(--animate-draw);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

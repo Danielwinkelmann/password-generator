@@ -1,3 +1,5 @@
+import tailwindcss from '@tailwindcss/vite'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -5,24 +7,49 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/i18n',
-    '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
-    '@kevinmarrec/nuxt-pwa',
+    '@vite-pwa/nuxt',
+    '@nuxt/icon',
   ],
 
-  pwa: {
-    icon: {
-      source: './public/pwa-512x512.png',
-      maskablePadding: 0,
+  icon: {
+    // Inline SVGs so icon paths can be animated; bundle them so the PWA works offline
+    mode: 'svg',
+    clientBundle: {
+      scan: true,
     },
-    meta: {
-      title: 'Password Generator',
+  },
+
+  css: ['~/assets/css/tailwind.css'],
+
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
+  pwa: {
+    registerType: 'autoUpdate',
+    manifest: {
       name: 'The Password App',
-      mobileApp: true,
-      mobileAppIOS: true,
+      short_name: 'Password Generator',
       theme_color: '#040F2D',
+      background_color: '#040F2D',
+      display: 'standalone',
       lang: 'en',
-      // appleStatusBarStyle: 'black-translucent',
+    },
+    pwaAssets: {
+      image: 'public/pwa-512x512.png',
+      preset: 'minimal-2023',
+    },
+    workbox: {
+      navigateFallback: '/',
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
+    },
+  },
+
+  // Emit the SPA shell as static index.html so the service worker can serve it offline
+  nitro: {
+    prerender: {
+      routes: ['/'],
     },
   },
 
@@ -32,56 +59,52 @@ export default defineNuxtConfig({
       meta: [
         { name: 'description', content: 'My amazing site.' },
         { name: 'theme-color', content: '#040F2D' },
+        { name: 'mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-capable', content: 'yes' },
+        { name: 'apple-mobile-web-app-title', content: 'Password Generator' },
       ],
     },
   },
 
   i18n: {
-    // locales: ['de', 'en', 'es', 'fr', 'pl'],
     locales: [
       {
         code: 'en',
-        iso: 'en-US',
+        language: 'en-US',
         file: 'en.yml',
         name: 'English',
       },
       {
         code: 'de',
-        iso: 'de-DE',
+        language: 'de-DE',
         file: 'de.yml',
         name: 'Deutsch',
       },
       {
         code: 'fr',
-        iso: 'fr-FR',
+        language: 'fr-FR',
         file: 'fr.yml',
         name: 'Français',
       },
       {
         code: 'es',
-        iso: 'es-ES',
+        language: 'es-ES',
         file: 'es.yml',
-        name: 'Spanisch',
+        name: 'Español',
       },
       {
         code: 'pl',
-        iso: 'pl-PL',
+        language: 'pl-PL',
         file: 'pl.yml',
-        name: 'Polnisch',
+        name: 'Polski',
       },
     ],
-    langDir: 'locales',
     strategy: 'no_prefix',
-    debug: false,
     defaultLocale: 'en',
     detectBrowserLanguage: {
       useCookie: true,
-      // alwaysRedirect: true
-      // cookieKey: 'i18n_redirected',
-      // // cookieKey: 'my_custom_cookie_name',
-      // redirectOn: 'root'
     },
   },
 
-  compatibilityDate: '2024-08-28',
+  compatibilityDate: '2026-10-07',
 })

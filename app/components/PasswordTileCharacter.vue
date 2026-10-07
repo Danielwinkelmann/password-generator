@@ -3,7 +3,7 @@ import type { Ref } from 'vue'
 
 type State = 'none' | 'animate' | 'done'
 const props = defineProps<Props>()
-const characters = 'abcdefghijklmnopqrstovwxyz0123456789'
+const characters = 'abcdefghijklmnopqrstuvwxyz0123456789'
 const state: Ref<State> = ref('none')
 const getRandomNumber = (from: number, to: number) => Math.floor(Math.random() * to) + from
 const getRandomDuration = (max: number) => getRandomNumber(20, max)
@@ -11,10 +11,18 @@ const getRandomTicks = (ticks: number) => getRandomNumber(5, ticks)
 const getRandomCharacter = () => characters[getRandomNumber(0, characters.length - 1)]
 
 const char = ref('')
+const element = useTemplateRef<HTMLElement>('element')
 
 interface Props {
   character: string
+  masked?: boolean
 }
+
+// Pop back in when the copy wave reveals the character again
+watch(() => props.masked, (masked) => {
+  if (!masked)
+    element.value?.animate([{ scale: 0.4, opacity: 0.4 }, { scale: 1, opacity: 1 }], { duration: 250, easing: 'cubic-bezier(0.34, 1.56, 0.64, 1)' })
+})
 
 function generateTicks() {
   let tick = 0
@@ -55,7 +63,7 @@ const stateClasses = computed(() => {
 </script>
 
 <template>
-  <p :class="stateClasses">
-    {{ char }}
+  <p ref="element" :class="stateClasses">
+    {{ props.masked ? '*' : char }}
   </p>
 </template>

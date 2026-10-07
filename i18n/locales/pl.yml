@@ -1,20 +1,18 @@
+---
 2021-daniel-winkelmann: '{year} Daniel Winkelmann'
-auto-update: Auto Update
+apple-password: Hasło w stylu Apple
+auto-update: Automatyczna aktualizacja
 copied: Copied!
 copy-password: Copy Password
 counter-example: Counter Example
 decrement: Decrement
-english: English
-french: French
 generate: Generate
-german: German
 increment: Increment
+language: Język
 length-length: 'Length: {0}'
 number-characters: Number Characters
 password: Password
 password-generator: Password Generator
 settings: Settings
-spanish: Spanish
 special-characters: Special Characters
-unknown: Unknown
 uppercase-characters: Uppercase Characters

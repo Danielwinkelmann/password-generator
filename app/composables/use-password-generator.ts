@@ -9,6 +9,7 @@ export interface UsePasswordGeneratorOptions {
   useUppercase?: Ref<boolean>
   useSymbol?: Ref<boolean>
   useNumbers?: Ref<boolean>
+  appleStyle?: Ref<boolean>
 }
 
 /**
@@ -17,31 +18,46 @@ export interface UsePasswordGeneratorOptions {
  * @returns An object with the generated password, its length, the characters used to generate it, and a function to generate a new password.
  */
 export function usePasswordGenerator(options: UsePasswordGeneratorOptions) {
-  const { useUppercase, useNumbers, useSymbol, autoUpdate } = options
+  const { useUppercase, useNumbers, useSymbol, autoUpdate, appleStyle } = options
 
   const charSetUppercaseEnabled = useUppercase || ref(false)
   const charSetNumberEnabled = useNumbers || ref(false)
   const charSetSymbolEnabled = useSymbol || ref(false)
   const autoUpdateEnabled = autoUpdate || ref(true)
+  const appleStyleEnabled = appleStyle || ref(false)
 
   const charSetNumber = '0123456789'
   const charSetSymbol = '@#$%-'
   const charSetUppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  const charSetLowercase = 'abcdefghijklmnopqrstovwxyz'
+  const charSetLowercase = 'abcdefghijklmnopqrstuvwxyz'
+
+  // Apple-style syllables; 'l' is left out so it can't be confused with an uppercase 'I'
+  const charSetAppleVowels = 'aeiouy'
+  const charSetAppleConsonants = 'bcdfghjkmnpqrstvwxz'
 
   const password = ref('my_password_generator')
   const passwordLength = useLocalStorage('password_length', 8)
 
   /**
-   * Generates a random number using the browser's crypto API or Math.random().
-   * @returns A random number between 0 and 1.
+   * Returns a uniformly distributed random integer using the browser's crypto API.
+   * Values above the largest multiple of max are rejected to avoid modulo bias.
+   * @param max - The exclusive upper bound.
+   * @returns A random integer between 0 and max - 1.
    */
-  const generateRandomCryptoNumber = () => {
-    if (window)
-      return crypto.getRandomValues(new Uint32Array(1))[0] / 4294967296
-    else
-      return Math.random() // to avoid SSR Issues
+  const getRandomInt = (max: number) => {
+    const limit = Math.floor(4294967296 / max) * max
+    const buffer = new Uint32Array(1)
+    do crypto.getRandomValues(buffer)
+    while (buffer[0]! >= limit)
+    return buffer[0]! % max
   }
+
+  /**
+   * Picks a random character from a string.
+   * @param set - The characters to pick from.
+   * @returns A random character from set.
+   */
+  const pick = (set: string) => set[getRandomInt(set.length)]!
 
   /**
    * Validates a password against the enabled character sets.
@@ -82,26 +98,38 @@ export function usePasswordGenerator(options: UsePasswordGeneratorOptions) {
   })
 
   /**
-   * Generates a random number between two values.
-   * @param from - The minimum value.
-   * @param to - The maximum value.
-   * @returns A random number between from and to.
+   * Generates a password in the style of Safari's strong passwords, e.g. "hewfaj-nyfdu6-biJdob":
+   * three groups of consonant-vowel-consonant-consonant-vowel-consonant, separated by hyphens,
+   * with one digit at the start or end of a group and one uppercase letter (~72 bits of entropy).
+   * @returns The generated password.
    */
-  const getRandomNumber = (from: number, to: number) => Math.round(generateRandomCryptoNumber() * to) + from
+  const generateApplePassword = () => {
+    const groups = Array.from({ length: 3 }, () =>
+      [...'cvccvc'].map(type => pick(type === 'v' ? charSetAppleVowels : charSetAppleConsonants)))
 
-  /**
-   * Gets a random character from the character set.
-   * @returns A random character from the character set.
-   */
-  const getRandomCharacter = () => characters.value[getRandomNumber(0, characters.value.length - 1)]
+    const digitGroup = groups[getRandomInt(groups.length)]!
+    digitGroup[getRandomInt(2) === 0 ? 0 : digitGroup.length - 1] = pick(charSetNumber)
+
+    const letterPositions = groups.flatMap((group, groupIndex) =>
+      group.flatMap((char, charIndex) => /[a-z]/.test(char) ? [[groupIndex, charIndex] as const] : []))
+    const [groupIndex, charIndex] = letterPositions[getRandomInt(letterPositions.length)]!
+    groups[groupIndex]![charIndex] = groups[groupIndex]![charIndex]!.toUpperCase()
+
+    return groups.map(group => group.join('')).join('-')
+  }
 
   /**
    * Generates a new random password.
    */
   const generateRandomPassword = () => {
+    if (appleStyleEnabled.value) {
+      password.value = generateApplePassword()
+      return
+    }
+
     const charArray = []
     for (let index = 0; index < passwordLength.value; index++)
-      charArray.push(getRandomCharacter())
+      charArray.push(pick(characters.value))
 
     const pw = charArray.join('')
     if (validatePassword(pw))
@@ -112,15 +140,15 @@ export function usePasswordGenerator(options: UsePasswordGeneratorOptions) {
   /**
    * Watches for changes in the password length or enabled character sets and generates a new password if auto-update is enabled.
    */
-  watch([passwordLength, charSetNumberEnabled, charSetSymbolEnabled, charSetUppercaseEnabled], () => {
+  watch([passwordLength, charSetNumberEnabled, charSetSymbolEnabled, charSetUppercaseEnabled, appleStyleEnabled], () => {
     if (autoUpdateEnabled.value)
       generateRandomPassword()
   })
 
   /**
-   * Generates a new password after a delay to avoid SSR issues.
+   * Generates the first password once the entrance animation is underway.
    */
-  onMounted(() => setTimeout(() => generateRandomPassword(), 2500))
+  onMounted(() => setTimeout(() => generateRandomPassword(), 300))
 
   return {
     password: readonly(password),

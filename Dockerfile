@@ -1,5 +1,5 @@
 # Use a large Node.js base image to build the application
-FROM node:20.15.0-bullseye-slim
+FROM node:24-bookworm-slim
 
 # RUN apk add --update tzdata
 ENV TZ="Europe/Berlin"
